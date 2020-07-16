@@ -16,6 +16,8 @@ prepare() {
     sed -i -e 's/mbe_processAmbe2250Dataf/mbe_processAmbe2450Dataf/' \
            -e 's/mbe_processAmbe3600x2250Framef/mbe_processAmbe3600x2450Framef/' \
         dsd_mbe.c
+    sed -i -e '/^CFLAGS/ s/$/ -fcommon/' \
+        Makefile
 }
 
 build() {
